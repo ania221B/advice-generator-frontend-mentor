@@ -24,6 +24,7 @@
   --size-large: 2rem;
   --size-x-large: 3rem;
   --br: 0.75rem;
+  --gap: 2rem;
 }
 
 @media (min-width: 40em) {
@@ -134,20 +135,28 @@ select {
     UTILITY CLASSES
 ==================== */
 
-main {
-  display: grid;
-  place-items: center;
-}
-
 .container {
   width: min(calc(100% - (var(--size-x-small)) * 2), 32rem);
   margin-inline: auto;
 }
 
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--gap);
+}
+
+/* ==================
+    GENERATOR
+==================== */
+
+main {
+  display: grid;
+  place-items: center;
+}
+
 .advice-generator {
   display: grid;
   grid-auto-flow: row;
-  gap: 2rem;
+  gap: var(--gap);
 
   padding-inline: clamp(
     var(--size-medium),
