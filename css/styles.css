@@ -1,0 +1,228 @@
+/* ===================
+    CUSTOM PROPERTIES
+===================== */
+:root {
+  --ff-sans: 'Manrope', sans-serif;
+
+  --fs-200: 0.75rem;
+  --fs-400: 1.5rem;
+
+  --fw-400: 400;
+  --fw-800: 800;
+
+  --clr-neutral-400: hsl(217, 19%, 38%);
+  --clr-neutral-600: hsl(217, 19%, 24%);
+  --clr-neutral-800: hsl(218, 23%, 16%);
+  --clr-neutral-900: hsl(215, 23%, 10%);
+
+  --clr-primary-200: hsl(193, 38%, 86%);
+  --clr-secondary-400: hsl(150, 100%, 66%);
+
+  --size-x-small: 1rem;
+  --size-small: 1.25rem;
+  --size-medium: 1.5rem;
+  --size-large: 2rem;
+  --size-x-large: 3rem;
+  --br: 0.75rem;
+}
+
+@media (min-width: 40em) {
+  :root {
+    --fs-400: 1.75rem;
+  }
+}
+
+/* ================
+    RESET
+=================== */
+
+/* Sets box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Removes default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Removes unnecessary space caused by line height */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+}
+
+/* Removes default list styling on ul, ol elements with a list role */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Sets core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Sets core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+  font-family: var(--ff-sans);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-800);
+  color: var(--clr-primary-200);
+  background-color: var(--clr-neutral-800);
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr auto;
+}
+
+/* Gives default styling to a elements that don't have a class */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Makes images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Inherits fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Removes all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==================
+    UTILITY CLASSES
+==================== */
+
+main {
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  width: min(calc(100% - (var(--size-x-small)) * 2), 32rem);
+  margin-inline: auto;
+}
+
+.advice-generator {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
+
+  padding-inline: clamp(
+    var(--size-medium),
+    var(--size-medium) + 0.5vw,
+    var(--size-large)
+  );
+  padding-block: var(--size-x-large);
+  border-radius: var(--br);
+  background-color: var(--clr-neutral-600);
+  text-align: center;
+  box-shadow: 0 0.25em 1em var(--clr-neutral-900);
+
+  position: relative;
+}
+
+.advice-generator blockquote > p {
+  quotes: auto;
+}
+.advice-generator blockquote > p::before {
+  content: open-quote;
+}
+.advice-generator blockquote > p::after {
+  content: close-quote;
+}
+
+.advice-generator > *:nth-last-child(2) {
+  margin-bottom: 1rem;
+  justify-self: center;
+}
+
+.title {
+  font-size: var(--fs-200);
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  color: var(--clr-secondary-400);
+}
+
+.button {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  padding: var(--size-small);
+  background-color: var(--clr-secondary-400);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  justify-self: center;
+
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  inset: auto auto 0 auto;
+  transform: translateY(50%);
+  isolation: isolate;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  width: 100%;
+  aspect-ratio: inherit;
+  box-shadow: 0em 0em 0.25em var(--clr-neutral-400),
+    0em 0em 1.5em var(--clr-secondary-400);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 400ms cubic-bezier(0.78, -0.2, 0.27, 1.21);
+}
+
+.button:hover::before,
+.button:focus::before {
+  opacity: 1;
+}
+
+footer {
+  padding-block: var(--size-small);
+}
