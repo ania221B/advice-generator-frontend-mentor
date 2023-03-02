@@ -224,7 +224,7 @@ main {
 }
 
 footer {
-  padding-block: var(--size-small);
+  padding-block: var(--size-large);
 }
 
 .attribution {
@@ -233,5 +233,26 @@ footer {
 }
 
 .attribution a {
+  display: inline-block;
   color: var(--clr-secondary-400);
+  text-decoration: none;
+  position: relative;
+}
+
+.attribution a::after {
+  content: '';
+  position: absolute;
+  inset: auto auto 0 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--clr-secondary-400);
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 200ms ease-out, transform 200ms ease-out 100ms;
+}
+
+.attribution a:hover::after,
+.attribution a:focus::after {
+  opacity: 1;
+  transform: translateY(0.25em);
 }
