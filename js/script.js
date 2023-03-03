@@ -2,7 +2,9 @@ const adviceGenerator = document.querySelector('.advice-generator')
 const advice = adviceGenerator.querySelector('.advice')
 
 function getAdvice () {
-  fetch('https://api.adviceslip.com/advice')
+  fetch('https://api.adviceslip.com/advice', {
+    cache: 'reload'
+  })
     .then(response => response.json())
     .then(response => {
       const slip = response.slip
