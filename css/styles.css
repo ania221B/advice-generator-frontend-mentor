@@ -16,7 +16,9 @@
   --clr-neutral-900: hsl(215, 23%, 10%);
 
   --clr-primary-200: hsl(193, 38%, 86%);
-  --clr-secondary-400: hsl(150, 100%, 66%);
+  --clr-secondary-400: #52ffa8;
+
+  --clr-accent-400: #e70d4f;
 
   --size-x-small: 1rem;
   --size-small: 1.25rem;
@@ -194,6 +196,10 @@ main {
   color: var(--clr-secondary-400);
 }
 
+.advice img {
+  margin-inline: auto;
+}
+
 .button {
   border: none;
   background: none;
@@ -214,6 +220,11 @@ main {
   isolation: isolate;
 }
 
+.button:focus {
+  outline: none;
+  outline: 1px solid transparent;
+}
+
 .button::before {
   content: '';
   position: absolute;
@@ -228,8 +239,9 @@ main {
 }
 
 .button:hover::before,
-.button:focus::before {
+.button:focus-visible::before {
   opacity: 1;
+  outline-color: transparent;
 }
 
 footer {
@@ -260,6 +272,10 @@ footer {
   transition: opacity 200ms ease-out, transform 200ms ease-out 100ms;
 }
 
+.attribution a:focus {
+  outline: none;
+  outline: 1px solid transparent;
+}
 .attribution a:hover::after,
 .attribution a:focus::after {
   opacity: 1;
