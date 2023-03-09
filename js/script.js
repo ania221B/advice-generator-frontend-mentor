@@ -6,11 +6,8 @@ function getAdvice () {
     cache: 'reload'
   })
     .then(response => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        return Promise.reject(response)
-      }
+      if (response.ok) return response.json()
+      return Promise.reject(response)
     })
     .then(body => {
       if (!body.slip) {
