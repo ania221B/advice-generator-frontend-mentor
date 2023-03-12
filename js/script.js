@@ -1,3 +1,5 @@
+/* globals fetch DOMPurify */
+
 const adviceGenerator = document.querySelector('.advice-generator')
 const advice = adviceGenerator.querySelector('.advice')
 
