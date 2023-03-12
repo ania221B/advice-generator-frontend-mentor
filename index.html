@@ -15,8 +15,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.7/purify.min.js"></script>
 
   <script src="js/script.js" defer></script>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
 
 <body>
@@ -29,12 +27,12 @@
           <p>Click the button to get an advice</p>
 
         </div>
-        <picture>
+        <picture aria-hidden="true">
           <source srcset="images/pattern-divider-desktop.svg" media="(min-width: 40em)">
           <img src="images/pattern-divider-mobile.svg" alt="">
         </picture>
         <button aria-label="generate advice" type="button" class="button">
-          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z" fill="#202733" />
           </svg>
         </button>
