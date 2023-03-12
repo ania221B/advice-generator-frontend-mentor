@@ -1,6 +1,9 @@
 const adviceGenerator = document.querySelector('.advice-generator')
 const advice = adviceGenerator.querySelector('.advice')
 
+/**
+ * Gets advice from Advice Slip JSON API
+ */
 function getAdvice () {
   fetch('https://api.adviceslip.com/advice', {
     cache: 'reload'
